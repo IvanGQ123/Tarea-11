@@ -6,7 +6,44 @@ using namespace std;
 
 
 int main(){
+    ArregloDinamico<string> at;
+    int i;
+    
+    at.insertar_final("Dark");
+    at.insertar_final("Souls");
+    at.insertar_inicio("Ivan");
+    at.insertar_inicio("Gomez");
+    cout<<"DATOS:"<<endl;
+    for (size_t i=0; i< at.size(); i++){
+        cout<<at[i]<<" ";
+    }
+    cout<<"\n\nINSERTADOS:"<<endl;
+    at.insertar("colado",3);
 
+    for (size_t i=0; i< at.size(); i++){
+        cout<<at[i]<<" ";
+    }
+    cout<<"\n\nELIMINADOS:"<<endl;
+    at.eliminar_inicio();
+    at.eliminar_final();
+    at.eliminar(2);
+    for (size_t i=0; i< at.size(); i++){
+        cout<<at[i]<<" ";
+    }
+
+    /*for (i=0; i<10; i++){
+        at.insertar_final(i);
+    }
+    at.insertar(100,2);
+    at.eliminar_inicio();
+    at.eliminar_final();
+    at.eliminar(5);
+    for (size_t i=0; i< at.size(); i++){
+        cout<<at[i]<<" ";
+    }
+    */
+    
+    /* 
     ArregloDinamico ad;
     cout<<"Agregando solo al final"<<endl;
     ad.insertar_final("Dark");
@@ -28,7 +65,7 @@ int main(){
     for(size_t i=0; i<ad.size(); i++){
         cout << ad[i] << " ";
     }
-
+    */
 cout<<"\n\n"<<endl;
 
 system("pause");
