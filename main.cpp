@@ -1,13 +1,56 @@
 #include <iostream>
 #include "ArregloDinamico.h"      
-#include "windows.h"  
-
+#include <windows.h>  
+#include "Computadora.h"
 using namespace std;
 
 
 int main(){
+    ArregloDinamico<Computadora> computadoras;
+
+    Computadora c01("HP", 12, "Windows 10", 500);
+    Computadora c02("Lenovo", 8, "Linux", 1000);
+    Computadora c03("HP", 4, "Windows 7", 1000);
+    
+    
+    Computadora c04("Dell", 4, "Linux", 500); 
+    Computadora c05("Lenovo", 8, "Linux", 1000);
+    Computadora c08("JK", 2, "MP", 2);
+
+    computadoras << c01 << c02 << c03 <<c02 <<c02 <<c04 <<c05;
+    
+    cout<<"Buscar Todos"<<endl;
+    ArregloDinamico<Computadora*> ptrs = computadoras.buscar_todos(c05);
+
+    if(ptrs.size()>0){
+        for(size_t i=0; i < ptrs.size(); i++){
+            Computadora *v = ptrs[i];
+            cout<<*v<<endl;
+        }
+    }else{
+        cout<<"No existen coincidencias"<<endl;
+    }
+
+   
+    cout<<"Buscar Uno Existente"<<endl;
+    Computadora *ptrl = computadoras.buscar(c01);
+    if(ptrl != nullptr){
+            cout << *ptrl << endl;
+        }else{
+            cout<<"No Existe"<<endl;
+      }
+    
+    cout<<"Buscar uno inexistente"<<endl;
+    Computadora *ptr = computadoras.buscar(c08);
+    if(ptr != nullptr){
+            cout << *ptr << endl;
+        }else{
+            cout<<"No Existe"<<endl;
+        }
+
+    /*
     ArregloDinamico<string> at;
-    int i;
+
     
     at.insertar_final("Dark");
     at.insertar_final("Souls");
@@ -30,7 +73,11 @@ int main(){
     for (size_t i=0; i< at.size(); i++){
         cout<<at[i]<<" ";
     }
-
+    
+    cout<<"\nBuscar"<<endl;
+    string *v = at.buscar("Ivan");
+    cout<< v << " " << *v <<endl;
+    */
     /*for (i=0; i<10; i++){
         at.insertar_final(i);
     }
